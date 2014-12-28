@@ -3,6 +3,31 @@
 
 Tutorial
 ========
+Pint Basic Concepts
+---------------------
+Pint uses several simple concepts to help you keep track of real values in a clean safe way.  A quick introduction to the terms used in this guide follows here, and hopefully will make the rest of this manual a clear read.
+
+Unit Registry:  this is the master document if you will that defines the units you will be using. It is generated from a text file and can be modified on the fly, which will define the relationships between units and dimensions etc.
+
+Dimension: This is the "type" of unit something is, be it time, length, or volume.  These are defined in the unit registry inside of square brakets[]. Dimensions can be based on each other, but no two dimesions are the exact same thing.  Generally, but not always, in this manual when we are speaking about dimensions we willrefere to them in brackets IE [time]
+
+Unit: This is a specific way of measuring a dimension.  Examples of units are inch, meter, and second.  Multiple units can be equivalent to eachother, for example sec is the same as second.
+Quantity: A quantity in Pint is the name of the type of object which makes everything work in Pint.  It will typically contain:
+
+ * value: how big it is ie 10
+ * units: what the size of the value is being measured in ie Inches
+ * dimensionality: what kind of thing the quantity defines, ie is it a length or an area, this is derived directly from the units
+
+Base Units: The unit registry being used defines for each dimension a base unit.  This is the first unit used in the definition file.  Looking at defaults_en.txt, which is the default unit registry file, we can see an example line::
+
+	meter = [length] = m = metre
+
+Here we can see several things.  First we are defining a unit called "meter".  It has a dimensionality of [length].  It is also equal to "m" as well as "metre".  Since "meter" is the first unit defined, it is the "base unit" for all Quantites with a dimensionality of [length]. Continuing down to line 140 as of version 0.7, we can see more [length] units being defined, all based on the meter::
+
+	# Length
+	angstrom = 1e-10 * meter = ångström = Å
+	inch = 2.54 * centimeter = in = international_inch = inches = international_inches 
+
 
 Converting Quantities
 ---------------------
