@@ -5,6 +5,7 @@ Tutorial
 ========
 Pint Basic Concepts
 ---------------------
+
 Pint uses several simple concepts to help you keep track of real values in a clean safe way.  A quick introduction to the terms used in this guide follows here, and hopefully will make the rest of this manual a clear read.
 
 Unit Registry:  this is the master ?object? that defines the units you will be using. It is generated from a text file and can be modified on the fly, which will define the relationships between units and dimensions etc.
@@ -28,6 +29,8 @@ Here we can see several things.  First we are defining a unit called "meter".  I
 	# Length
 	angstrom = 1e-10 * meter = Ångström = Å
 	inch = 2.54 * centimeter = in = international_inch = inches = international_inches
+
+*NOTE* Base Units currently are mgs, which is close but not quite SI standard units, so be catious that you request the units you want when using pint.  The default behavior currently has no SI prefix on any base unit, so grams is used instead of kilograms.
 
 Base Dimensions: A Base Dimension is one which is a fundamental form of measure, and can not be reduced further. A clearer but less useful definition is a Base Dimension is a dimension that is not a Derived Dimension.
 
